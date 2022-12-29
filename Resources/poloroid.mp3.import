@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/poloroid.mp3-238511addb64283d428cc285d7d5cb78.mp3str"
+
+[deps]
+
+source_file="res://Resources/poloroid.mp3"
+dest_files=[ "res://.import/poloroid.mp3-238511addb64283d428cc285d7d5cb78.mp3str" ]
+
+[params]
+
+loop=false
+loop_offset=0

@@ -1,0 +1,44 @@
+[gd_scene load_steps=10 format=2]
+
+[ext_resource path="res://Code/title.gd" type="Script" id=1]
+[ext_resource path="res://Sprites/Universal/maintitle_0000.png" type="Texture" id=2]
+[ext_resource path="res://Sprites/Universal/maintitle_0001.png" type="Texture" id=3]
+[ext_resource path="res://Sprites/Universal/maintitle_0002.png" type="Texture" id=4]
+[ext_resource path="res://Sprites/Universal/Transition_0001.png" type="Texture" id=5]
+[ext_resource path="res://Sprites/Universal/Transition_0000.png" type="Texture" id=6]
+[ext_resource path="res://Sprites/Universal/Transition_0002.png" type="Texture" id=7]
+
+[sub_resource type="SpriteFrames" id=1]
+animations = [ {
+"frames": [ ExtResource( 6 ), ExtResource( 5 ), ExtResource( 7 ) ],
+"loop": true,
+"name": "default",
+"speed": 3.0
+} ]
+
+[sub_resource type="SpriteFrames" id=2]
+animations = [ {
+"frames": [ ExtResource( 2 ), ExtResource( 3 ), ExtResource( 4 ) ],
+"loop": true,
+"name": "default",
+"speed": 3.0
+} ]
+
+[node name="Control" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+rect_pivot_offset = Vector2( 1205, 606 )
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Transition" type="AnimatedSprite" parent="."]
+frames = SubResource( 1 )
+playing = true
+centered = false
+
+[node name="AnimatedSprite" type="AnimatedSprite" parent="."]
+frames = SubResource( 2 )
+playing = true
+centered = false

@@ -1,0 +1,89 @@
+[gd_scene load_steps=16 format=2]
+
+[ext_resource path="res://Code/FlavorText.gd" type="Script" id=1]
+[ext_resource path="res://Sprites/GUI/dialoguebox_0002.png" type="Texture" id=2]
+[ext_resource path="res://Sprites/GUI/dialoguebox_0000.png" type="Texture" id=3]
+[ext_resource path="res://Sprites/GUI/dialoguebox_0001.png" type="Texture" id=4]
+[ext_resource path="res://Sprites/GUI/Caveat-VariableFont_wght.ttf" type="DynamicFontData" id=5]
+[ext_resource path="res://Sprites/GUI/Ayman_0001.png" type="Texture" id=6]
+[ext_resource path="res://Sprites/GUI/Ayman_0002.png" type="Texture" id=7]
+[ext_resource path="res://Sprites/GUI/Owlpede_0000.png" type="Texture" id=8]
+[ext_resource path="res://Sprites/GUI/Owlpede_0002.png" type="Texture" id=9]
+[ext_resource path="res://Sprites/GUI/Owlpede_0001.png" type="Texture" id=10]
+[ext_resource path="res://Sprites/GUI/Ayman_0000.png" type="Texture" id=11]
+[ext_resource path="res://Resources/Rocksalt.tres" type="DynamicFont" id=12]
+
+[sub_resource type="SpriteFrames" id=1]
+animations = [ {
+"frames": [ ExtResource( 3 ), ExtResource( 4 ), ExtResource( 2 ) ],
+"loop": true,
+"name": "default",
+"speed": 3.0
+} ]
+
+[sub_resource type="SpriteFrames" id=3]
+animations = [ {
+"frames": [ ExtResource( 8 ), ExtResource( 10 ), ExtResource( 9 ) ],
+"loop": true,
+"name": "Owlpede",
+"speed": 3.0
+}, {
+"frames": [ ExtResource( 11 ), ExtResource( 6 ), ExtResource( 7 ) ],
+"loop": true,
+"name": "Ayman",
+"speed": 3.0
+} ]
+
+[sub_resource type="DynamicFont" id=4]
+size = 62
+use_filter = true
+extra_spacing_top = -17
+extra_spacing_bottom = -20
+font_data = ExtResource( 5 )
+
+[node name="Dialogue" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="AnimatedSprite" type="AnimatedSprite" parent="."]
+frames = SubResource( 1 )
+frame = 2
+playing = true
+centered = false
+
+[node name="NameBox" type="AnimatedSprite" parent="."]
+frames = SubResource( 3 )
+animation = "Owlpede"
+frame = 1
+playing = true
+centered = false
+
+[node name="Text" type="RichTextLabel" parent="."]
+self_modulate = Color( 1, 1, 1, 0.807843 )
+margin_left = 110.0
+margin_top = 676.0
+margin_right = 1180.0
+margin_bottom = 917.0
+custom_colors/default_color = Color( 0, 0, 0, 0.854902 )
+custom_fonts/italics_font = SubResource( 4 )
+custom_fonts/normal_font = ExtResource( 12 )
+bbcode_enabled = true
+bbcode_text = "[i]testing one two three[/i] testing
+testing one two there"
+text = "testing one two three testing
+testing one two there"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 0.05
+autostart = true
+
+[node name="AutoCloseTimer" type="Timer" parent="."]
+
+[connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]
